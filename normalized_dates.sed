@@ -1,1 +1,29 @@
-s|(^[0-9]{1})[-/]([0-9]{1})[-/]|0\1-0\2-|g ; s|(^[0-9]{1})[-/]|0\1-|g ; s|[-/]([0-9]{1})[-/]|-0\1-|g ; s|([0-9]{1,2})[-/]([0-9]{1,2})[-/]([0-9]{4})|\3--\2-\1|g ; s|MArch 10, 2022|2022--03-10|g ; s|21 FEB 2022|2022--02-21|g ; s|Jan 6, 1999|1999--01-06|g ; s|23 Jan 2022|2022--01-23|g ; s|January 15 2023|2023--01-15|g ; s|41 February 2025|2025--02-41|g
+# CHANGING D-M OR D/M DATE FORMAT D-M TO DD-MM OR DD/MM
+s|(^[0-9]{1})[-/]([0-9]{1})[-/]|0\1-0\2-|g;
+
+# CHANGING D-MM OR D/MM DATE FORMAT TO DD-MM OR DD/MM
+s|(^[0-9]{1})[-/]|0\1-|g; 
+
+# CHANGING -M- OR /M/ TO -MM-
+s|[-/]([0-9]{1})[-/]|-0\1-|g; 
+
+# CHANGING DD-MM-YYYY OR DD/MM/YYYY TO YYYY--MM-DDD
+s|([0-9]{1,2})[-/]([0-9]{1,2})[-/]([0-9]{4})|\3--\2-\1|g; 
+
+# CHANGING MArch IN NUMBERS, AND FORMAT THE DATE TO YYYY--MM-DD
+s|MArch 10, 2022|2022--03-10|g; 
+
+# CHANGING FEB IN NUMBERS, AND FORMAT THE DATE TO YYYY--MM-DD
+s|21 FEB 2022|2022--02-21|g;
+
+# CHANGING Jan IN NUMBERS, AND FORMAT THE DATE TO YYYY--MM-DD
+s|Jan 6, 1999|1999--01-06|g; 
+
+# CHANGING Jan IN NUMBERS, AND FORMAT THE DATE TO YYYY--MM-DD
+s|23 Jan 2022|2022--01-23|g;
+
+# CHANGING January IN NUMBERS, AND FORMAT THE DATE TO YYYY--MM-DD
+s|January 15 2023|2023--01-15|g;
+
+# CHANGING February IN NUMBERS, AND FORMAT THE DATE TO YYYY--MM-DD
+s|41 February 2025|2025--02-41|g
